@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <title>NightWall - Administrateur</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf8" />
+    <!-- CSS -->
+    <link href="contrib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="contrib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/admin.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/popup.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="css/connexion.css" media="all"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Administration</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a onclick="admin.changeView('moderation')">Modération</a></li>
+            <li><a onclick="admin.changeView('settings')">Réglages</a></li>
+            <li><a href="/wall.html" target="_BLANK">Voir le mur</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="admin-menu">
+      <div id="moderation-view" class="container">
+        <h2>Modération</h2>
+        <hr/>
+        <div id="messages">
+        </div>
+        <button id="more-message-button" type="button" class="btn btn-lg btn-default" onclick="messages.displayMore()">
+          Afficher plus de messages
+        </button>
+      </div>
+      <div id="settings-view" class="container" style="display: none">
+        <h2>Réglages</h2>
+        <hr/>
+        <img src="img/boromir.png" id="boromir"></img>
+      </div>
+    </div>
+    <div id="connexion" class="type-1">
+      <div id="connect-panel" class="form-signin">
+        <h2>Administration</h2>
+        <input id="username" name="username" type="text" class="form-control" placeholder="Username" required autofocus>
+        <input id="password" name="password" type="password" class="form-control" placeholder="Password" required>
+        <input id="accountType" type="hidden" name="accountType" value="1">
+        <button class="btn btn-lg btn-primary btn-block" onclick="api.connect()">Sign in</button>
+      </div>
+    </div>
+    <!-- Contrib -->
+    <script src="contrib/jquery/jquery-3.1.0.min.js"></script>
+    <script src="contrib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="contrib/md5/md5.min.js"></script>
+    <script src="contrib/lightbox/js/lightbox.min.js"></script>
+    <!-- Application -->
+    <script src="config/config.js"></script>
+    <script src="js/popup.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/messages.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+      config = new Config();
+      api = new API(config.apiURL);
+
+      $("#connexion").on("remove", function () {
+          admin = new Admin(api);
+          messages = new Messages(api, admin, config.messagesLot, "all");
+      })
+
+      // Events
+      $('#connexion input').keydown(function(e) {
+          if (e.keyCode == 13) {
+            api.connect();
+          }
+      });
+    </script>
+  </body>
+</html>

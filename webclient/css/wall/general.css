@@ -1,0 +1,91 @@
+/* Messages */
+/* ---------------------------------------------------------------------------*/
+
+#messages-container{
+  margin-bottom: 20px;
+}
+
+#messages{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message{
+  display:flex;
+  flex-direction: column;
+}
+
+.message-img{
+  position: relative;
+}
+
+.message-img img{
+  max-width: 100%;
+}
+
+.message-img-txt{
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.70);
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  font-size: 20px;
+  padding-bottom: 3px;
+}
+
+.message-text {
+  word-break: keep-all;
+}
+
+.message-infos{
+  color: grey;
+}
+
+.message-author{
+  white-space: nowrap;
+}
+
+#more-message-button{
+  width: 100%;
+}
+
+/* Update bar */
+/* ---------------------------------------------------------------------------*/
+
+#update-bar{
+  width: 100%;
+  color: white;
+  background-color: black;
+  height: 40px;
+  /*padding-top: 8px;*/
+}
+
+#update-bar .container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#update-text{
+  padding-bottom: 4px;
+  align-self: center;
+  flex-grow: 1;
+}
+
+#update-button{
+  text-align: right;
+  align-self: center;
+  flex-grow: 1;
+}
+
+#update-button button{
+  color: white;
+}
+
+#update-button span{
+  color: black
+}

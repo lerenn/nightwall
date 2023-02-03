@@ -1,0 +1,42 @@
+.successful-message{
+  background-color: green;
+}
+
+.waiting-message{
+  background-color: grey;
+}
+
+.message{
+  color: white;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+}
+
+.message h3{
+  margin-top: 10px;
+}
+
+#photo, .row, input{
+  margin-bottom: 10px;
+}
+
+.center-menu{
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px){
+  #photo button {
+    height: 100%;
+  }
+
+  #photo, .row, input{
+    padding-right: 0px;
+    margin-bottom: 0px;
+  }
+
+  .center-menu{
+    justify-content: space-around;
+  }
+}

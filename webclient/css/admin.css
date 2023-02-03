@@ -1,0 +1,40 @@
+#admin-menu{
+  margin-top: 60px;
+}
+
+#more-message-button{
+  width: 100%;
+}
+
+#settings-view{
+  opacity: 0.33;
+}
+
+.message-status {
+  color: white;
+}
+
+#boromir{
+  position: absolute;
+  margin: auto;
+  width:100%;
+  max-width: 500px;
+  top: 150px;
+  left: 0;
+  right: 0;
+}
+
+#moderation-view hr {
+  margin: 0;
+}
+
+.message-id, .message-text, .message-img, .message-author, .message-status, .message-actions {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.message-text{
+  word-break: break-all;
+  display: block;
+}
